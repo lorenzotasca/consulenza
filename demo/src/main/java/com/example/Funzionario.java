@@ -1,10 +1,18 @@
 package com.example;
 
-public class Funzionario extends Personale{
+import java.util.Date;
 
-    public Funzionario(int c, String co, String n) {
-        super(c, co, n);
-        //TODO Auto-generated constructor stub
+public class Funzionario{
+    int codice;
+    String cognome;
+    String nome;
+    Date annoAssunzione;
+
+    public Funzionario(int c, String co, String n){
+        codice = c;
+        cognome = co;
+        nome = n;
+        this.annoAssunzione = new Date();
     }
     
 }
