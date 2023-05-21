@@ -1,17 +1,30 @@
 package com.example;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.util.function.Supplier;
 
 public class Personale {
-    int codice;
+    String codice;
     String cognome;
     String nome;
-    Date annoAssunzione;
+    int annoAssunzione;
 
-    public Personale(int c, String co, String n){
+    public Personale(String c, String co, String n, int a){
         codice = c;
         cognome = co;
         nome = n;
-        this.annoAssunzione = new Date();
+        annoAssunzione = a;
     }
+
+    public Supplier<Double> costOrario = () -> (0.0);
+
+    public double costoOrario(){
+        return costOrario.get();
+    }
+
+    public int annoAttuale(){
+        int year = LocalDate.now().getYear();
+        return year;
+    }
+
 }

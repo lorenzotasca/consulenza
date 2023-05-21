@@ -3,33 +3,37 @@ package com.example;
 import java.util.*;
 
 public class Progetto {
-    
+    /*
     LinkedList<Dirigente> dirigenti;
     LinkedList<Funzionario> funzionari;
      //specialization   //interno-esterno
     HashMap<String, HashMap<Boolean, LinkedList<Tecnico>>> tecnici;
-    
-    //LinkedList<Personale> personale;
+    */
+    LinkedList<Personale> personale;
 
     public Progetto(){
-        //personale = new LinkedList<>();
-        dirigenti = new LinkedList<>();
-        funzionari = new LinkedList<>();
-        tecnici = new HashMap<>();
+        personale = new LinkedList<>();
     }
 
-    public void addDirigente(int codice, String cognome, String nome){
-        dirigenti.add(new Dirigente(codice, cognome, nome));
+    public void addPersonale(Personale persona){
+        personale.add(persona);
     }
 
-    public void addFunzionario(int codice, String cognome, String nome){
-        funzionari.add(new Funzionario(codice, cognome, nome));
-    }
-    
-    public void addTecnico(int codice, String cognome, String nome){
-        Tecnico t = new Tecnico(codice, cognome, nome);
-        tecnici.put(t., null)
+    public void deletePersonale(String codice){
+        if(!personale.stream().anyMatch(persona -> persona.codice==codice)){
+            throw new PersonaleNotExistException();
+        };
+        for(Personale p : personale){
+            if(p.codice==codice){
+                personale.remove(p);
+            }
+        }
     }
 
+    public double calcolaCostoTot() {
+        return personale.stream()
+                .mapToDouble(Personale::costoOrario)// return new Stream with all double refer to costoOrario
+                .sum();// sum all double
+    }
     
 }

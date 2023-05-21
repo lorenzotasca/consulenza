@@ -1,18 +1,17 @@
 package com.example;
 
-import java.util.Date;
+import java.util.function.Supplier;
 
-public class Dirigente{
-    int codice;
-    String cognome;
-    String nome;
-    Date annoAssunzione;
+public class Dirigente extends Personale{
 
-    public Dirigente(int c, String co, String n){
-        codice = c;
-        cognome = co;
-        nome = n;
-        this.annoAssunzione = new Date();
+    public Dirigente(String c, String co, String n, int a) {
+        super(c, co, n, a);
     }
 
+    public Supplier<Double> costOrario = () -> (100.0);
+    @Override
+    public double costoOrario(){
+        return costOrario.get();
+    }
+    
 }

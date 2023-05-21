@@ -1,18 +1,17 @@
 package com.example;
 
-import java.util.Date;
 
-public class Funzionario{
-    int codice;
-    String cognome;
-    String nome;
-    Date annoAssunzione;
+public class Funzionario extends Personale{
 
-    public Funzionario(int c, String co, String n){
-        codice = c;
-        cognome = co;
-        nome = n;
-        this.annoAssunzione = new Date();
+    public Funzionario(String c, String co, String n, int a) {
+        super(c, co, n, a);
     }
-    
+        
+    @Override
+    public double costoOrario(){
+        int anno = annoAttuale() - this.annoAssunzione;
+        if (anno < 10) return 70.0;
+        else return 80.0;
+    }
+
 }
