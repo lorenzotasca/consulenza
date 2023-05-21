@@ -10,7 +10,7 @@ public class AppTest {
     public void testAddPersonale(){
         int prevSize = progetto.personale.size();
         progetto.addPersonale(new Dirigente("DTL15", "Tasca", "Lorenzo", 2015));
-        assertTrue( prevSize == (progetto.personale.size()+1) );
+        assertTrue( prevSize == (progetto.personale.size()-1) );
     }
 
     @Test
@@ -22,7 +22,7 @@ public class AppTest {
         } catch (Exception e) {
             fail("PersonaleNotExistException");
         }
-        assertTrue( prevSize == (progetto.personale.size()-1) );
+        assertTrue( prevSize == (progetto.personale.size()+1) );
     }
 
     @Test
