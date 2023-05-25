@@ -34,7 +34,7 @@ public class AppTest {
         progetto.addPersonale(new Tecnico("TBG14", "Bonacina", "Giorgio", 2014, "elet-auto", true));
 
         double costoTot = progetto.calcolaCostoTot();
-        assertEquals(283.0, costoTot, 0.001);
+        assertEquals(283.0, costoTot);
     }
 
 }
