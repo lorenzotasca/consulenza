@@ -3,7 +3,7 @@ package com.example;
 import java.time.LocalDate;
 import java.util.function.Supplier;
 
-public class Personale {
+public abstract class Personale {
     String codice;
     String cognome;
     String nome;
